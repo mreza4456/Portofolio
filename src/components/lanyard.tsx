@@ -17,6 +17,14 @@ import * as THREE from 'three';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      meshLineGeometry: any
+      meshLineMaterial: any
+    }
+  }
+}
 // ✅ gunakan string path dari public/
 const cardGLB = '/assets/lanyard/card.glb';
 const lanyardTex = '/assets/lanyard/lanyardreza.png';
