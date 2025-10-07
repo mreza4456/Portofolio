@@ -1,3 +1,4 @@
+"use client";
 import { ExternalLinkIcon, Github } from "lucide-react";
 import BlurText from "./BlurText";
 import SpotlightCard from "./SpotlightCard";
@@ -7,51 +8,51 @@ export default function Projects() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
- <motion.div
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: false }}
-  transition={{ duration: 0.8 }}
-  className="text-center mb-16 flex justify-center mt-20 relative"
->
-  <div className="relative w-full flex flex-col items-center">
-    {/* Teks besar di belakang */}
-    <h1
-      className="absolute -top-10 md:-top-16 lg:-top-20 
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16 flex justify-center mt-20 relative"
+      >
+        <div className="relative w-full flex flex-col items-center">
+          {/* Teks besar di belakang */}
+          <h1
+            className="absolute -top-10 md:-top-16 lg:-top-20 
                  text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] 
                  font-extrabold text-[#5170ff] opacity-20 
                  select-none pointer-events-none 
                  bg-gradient-to-b from-[#5170ff] via-[#6580f7] to-transparent bg-clip-text text-transparent
                  leading-none z-0"
-      style={{
-        WebkitTextStroke: '1px rgba(81,112,255,0.2)',
-      }}
-    >
-      PROJECTS
-    </h1>
+            style={{
+              WebkitTextStroke: '1px rgba(81,112,255,0.2)',
+            }}
+          >
+            PROJECTS
+          </h1>
 
-    {/* Teks utama */}
-    <BlurText
-      text="My Projects"
-      delay={150}
-      animateBy="words"
-      direction="top"
-      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 z-10 text-[#5170ff] relative"
-    />
+          {/* Teks utama */}
+          <BlurText
+            text="My Projects"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 z-10 text-[#5170ff] relative"
+          />
 
-    <div className="w-16 sm:w-20 h-1 bg-primary mx-auto"></div>
-  </div>
-</motion.div>
+          <div className="w-16 sm:w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+      </motion.div>
 
 
       <div className="flex flex-col gap-8">
         {[1, 2, 3].map((project) => (
           <motion.div
             key={project}
-            initial={{ opacity: 0.3, scale:0.8 }}
-            whileInView={{ opacity: 1,  scale:1 }}
-          
-            transition={{ duration: 0.5,  }}
+            initial={{ opacity: 0.3, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+
+            transition={{ duration: 0.5, }}
             className="overflow-hidden"
           >
             <div
