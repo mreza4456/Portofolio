@@ -1,3 +1,5 @@
+
+"use client";
 import React, { CSSProperties, PropsWithChildren, useId, useRef } from 'react';
 
 type ElectricBorderProps = PropsWithChildren<{
