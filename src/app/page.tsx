@@ -155,7 +155,7 @@ const Portfolio = () => {
             >
               <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
             </div>
-            <a href="#about" className='absolute block md:hidden bg-primary p-3 px-5 top-[60%] rounded-full'>Get Started</a>
+            <a href="#about" className='absolute block md:hidden bg-primary p-3 px-5 top-[50%] rounded-full'>Get Started</a>
           </div>
         </section>
 
