@@ -1,18 +1,16 @@
-export { };
+/// <reference types="react" />
+/// <reference types="@react-three/fiber" />
 
-declare module '*.glb';
-declare module '*.png';
-
-declare module 'meshline' {
-  export const MeshLineGeometry: any;
-  export const MeshLineMaterial: any;
-}
+import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
+import { Object3DNode } from '@react-three/fiber';
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      meshLineGeometry: any;
-      meshLineMaterial: any;
+      meshLineGeometry: Object3DNode<MeshLineGeometry, typeof MeshLineGeometry>;
+      meshLineMaterial: Object3DNode<MeshLineMaterial, typeof MeshLineMaterial>;
     }
   }
 }
+
+export {};

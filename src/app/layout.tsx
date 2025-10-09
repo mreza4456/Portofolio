@@ -1,4 +1,4 @@
-/// <reference path="../types/three-extensions.d.ts" />
+
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";

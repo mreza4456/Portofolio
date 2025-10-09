@@ -1,9 +1,9 @@
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import { Object3DNode } from '@react-three/fiber';
 
-// ⚡ Tidak pakai declare global — langsung namespace JSX
-declare namespace JSX {
-  interface IntrinsicElements {
+// 👇 Jangan pakai declare global — langsung augmentasi JSX
+declare module '@react-three/fiber' {
+  interface ThreeElements {
     meshLineGeometry: Object3DNode<MeshLineGeometry, typeof MeshLineGeometry>;
     meshLineMaterial: Object3DNode<MeshLineMaterial, typeof MeshLineMaterial>;
   }
