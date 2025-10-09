@@ -116,7 +116,7 @@ export default function Skills() {
                 {/* Tabs */}
 
 
-                <Tabs defaultValue="Frontend" className="w-full">
+                <Tabs defaultValue="Frontend" className="w-full ">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function Skills() {
                         transition={{ duration: 0.8, ease: "easeInOut" }}
 
                     >
-                        <TabsList className="flex flex-wrap justify-center gap-2 mb-8 dark:bg-black mx-auto">
+                        <TabsList className="flex flex-wrap justify-center gap-2 mb-8 dark:bg-black mx-auto ">
                             {categories.map((cat) => {
                                 let activeColor = "";
                                 if (cat)
@@ -136,7 +136,7 @@ export default function Skills() {
                                     <TabsTrigger
                                         key={cat}
                                         value={cat}
-                                        className={`px-4 py-3  rounded-full text-md font-medium ${activeColor}`}
+                                        className={`  rounded-full text-md font-medium ${activeColor}`}
                                     >
                                         {cat}
                                     </TabsTrigger>
@@ -147,7 +147,7 @@ export default function Skills() {
 
                     {categories.map((cat) => (
                         <TabsContent key={cat} value={cat}>
-                            <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+                            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 ">
                                 {projects
                                     .filter((p) => p.category === cat)
                                     .map((project, i) => (
@@ -165,7 +165,7 @@ export default function Skills() {
                                             }}
                                             className="flex"
                                         >
-                                            <Card className="bg-muted/50 border-0 w-full h-full flex flex-col items-center justify-center text-center p-3 sm:p-4 md:p-5">
+                                            <Card className="bg-muted/50 border-0 w-full h-full flex flex-col items-center justify-center text-center   p-3 sm:p-4 md:p-5">
                                                 <div className="text-4xl sm:text-5xl md:text-6xl mb-2">
                                                     {project.logo}
                                                 </div>

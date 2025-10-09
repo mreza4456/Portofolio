@@ -2,7 +2,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
+import { useGLTF, useTexture, Environment, Lightformer, OrbitControls } from '@react-three/drei';
 import {
   BallCollider,
   CuboidCollider,
@@ -17,14 +17,7 @@ import * as THREE from 'three';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      meshLineGeometry: any
-      meshLineMaterial: any
-    }
-  }
-}
+
 // ✅ gunakan string path dari public/
 const cardGLB = '/assets/lanyard/card.glb';
 const lanyardTex = '/assets/lanyard/lanyardreza.png';
@@ -49,7 +42,7 @@ export default function Lanyard({
         camera={{ position, fov }}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
-      >
+      > 
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={1 / 60}>
           <Band />

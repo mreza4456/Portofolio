@@ -1,4 +1,6 @@
 "use client";
+/// <reference path="../types/three-extensions.d.ts" />
+
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -21,6 +23,8 @@ import Skills from '@/components/skills';
 import About from '@/components/about';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
+import { OrbitControls } from '@react-three/drei';
+
 
 
 
@@ -74,7 +78,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="bg-background text-primary min-h-screen scroll-smooth dark:bg-black">
+    <div className="bg-background text-primary min-h-screen scroll-smooth dark:bg-black overflow-x-hidden">
 
       <Navbar />
       <main
@@ -88,7 +92,7 @@ const Portfolio = () => {
         <section
           id="home"
           className="
-    relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center
+    relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between
     text-gray-900 dark:text-gray-100 overflow-hidden
     bg-[radial-gradient(circle_at_top,rgba(0,70,130,0.4)_0%,rgba(0,70,130,0)_70%)] 
     dark:bg-[radial-gradient(circle_at_top,rgba(0,70,130,0.5)_0%,rgba(0,0,0,1)_70%)]
@@ -101,10 +105,10 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.8 }}
-            className="z-10 w-full md:w-1/2 text-center max-w-7xl md:text-left order-2 md:order-1 mt-8 md:mt-0 relative mt-200"
+            className="z-10 w-full md:w-1/2 text-center max-w-7xl md:text-left order-2 md:order-1 mt-8 md:mt-0 relative"
           >
-            <div className="p-5">
-              <h1 className='text-7xl font-bold font-mono'>
+            <div>
+              <h1 className='md:text-5xl text-3xl font-bold font-mono'>
                 <TextType
                   text={["Hi Im M Reza Rizky", "Web Developer"]}
                   typingSpeed={75}
@@ -112,10 +116,9 @@ const Portfolio = () => {
                   showCursor={true}
                   cursorCharacter="_"
                   textColors={["#5170ff"]}
-
                 />
-
               </h1>
+
               <div className='max-w-150 mt-10 px-3 text-muted-foreground font-mono md:text-lg'>
                 <AnimatedContent
                   distance={150}
@@ -129,33 +132,36 @@ const Portfolio = () => {
                   threshold={0.2}
                   delay={0.5}
                 >
-                  Saya adalah seorang Web Developer yang berpengalaman dalam pembuatan website modern, responsif, dan user-friendly. Memiliki pengalaman dalam front-end maupun back-end, serta terbiasa menggunakan teknologi seperti HTML, CSS, JavaScript, React, dan Node.js. Dengan perhatian pada detail dan performa, saya selalu berusaha menghadirkan solusi digital yang efektif dan sesuai kebutuhan pengguna.
+                  Saya adalah seorang Web Developer yang berpengalaman dalam pembuatan website modern, responsif, dan user-friendly.
+                  Memiliki pengalaman dalam front-end maupun back-end, serta terbiasa menggunakan teknologi seperti HTML, CSS, JavaScript, React, dan Node.js.
+                  Dengan perhatian pada detail dan performa, saya selalu berusaha menghadirkan solusi digital yang efektif dan sesuai kebutuhan pengguna.
                 </AnimatedContent>
-
-
               </div>
-
             </div>
-
-
           </motion.div>
 
           {/* Lanyard content */}
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end z-20">
+            {/* Desktop */}
+            <div className="hidden md:block w-full h-full">
+              <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+            </div>
 
-          <div className="hidden md:block absolute top-0 right-[-300px] h-full w-full z-20 ">
-            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+            {/* Mobile */}
+            <div
+              className="block md:hidden w-full h-full touch-none"
+              onTouchStart={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.preventDefault()}
+            >
+              <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+            </div>
           </div>
-          <div className=" block md:hidden absolute top-0  h-full w-full z-20 ">
-            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
-          </div>
-
-
         </section>
 
 
         {/* About Section */}
         <section id="about" className="min-h-screen py-25 ">
-        <About/>
+          <About />
         </section>
 
 
@@ -167,19 +173,20 @@ const Portfolio = () => {
 
         {/* Projects Section */}
         <section id="projects" className="min-h-screen py-25">
+         
           <Projects />
 
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="min-h-screen py-25">
-        <Contact/>
+          <Contact />
         </section>
       </main>
 
       {/* Footer */}
       <footer className="bg-muted py-12">
-       <Footer/>
+        <Footer />
       </footer>
     </div >
 

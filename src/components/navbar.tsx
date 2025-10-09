@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <nav
       className="fixed top-4 left-1/2 -translate-x-1/2 
-      bg-white/70 dark:bg-black/70 
+      bg-white dark:bg-muted dark:border-2 border-primary
       backdrop-blur-md shadow-lg 
       rounded-2xl px-6 py-3 
       z-50 flex justify-between items-center w-[90%] max-w-5xl
@@ -91,7 +91,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="absolute top-full left-0 mt-3 w-full 
-              bg-white/90 dark:bg-black/90 backdrop-blur-md 
+              bg-white/90 dark:bg-muted backdrop-blur-md 
               shadow-lg rounded-xl md:hidden"
           >
             <ul className="flex flex-col items-center py-6 space-y-6">
