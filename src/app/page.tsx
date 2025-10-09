@@ -105,7 +105,7 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.8 }}
-            className="z-10 w-full md:w-1/2 text-center max-w-7xl md:text-left order-2 md:order-1 mt-8 md:mt-0 relative"
+            className="z-0 w-full md:w-1/2 text-center max-w-7xl md:text-left order-2 md:order-1 mt-8 md:mt-0 relative"
           >
             <div>
               <h1 className='md:text-5xl text-3xl font-bold font-mono'>
@@ -119,7 +119,7 @@ const Portfolio = () => {
                 />
               </h1>
 
-              <div className='max-w-150 mt-10 px-3 text-muted-foreground font-mono md:text-lg'>
+              <div className='max-w-150 mt-10 px-3 text-muted-foreground font-mono md:text-lg p-5'>
                 <AnimatedContent
                   distance={150}
                   direction="vertical"
@@ -143,18 +143,19 @@ const Portfolio = () => {
           {/* Lanyard content */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-end z-20">
             {/* Desktop */}
-            <div className="hidden md:block w-full h-full">
+            <div className="hidden md:block absolute right-[20%] top-1/2 -translate-y-1/2 z-0 w-full h-full">
               <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
             </div>
 
             {/* Mobile */}
             <div
-              className="block md:hidden w-full h-full touch-none"
+              className=" block md:hidden w-full  touch-none"
               onTouchStart={(e) => e.stopPropagation()}
               onTouchMove={(e) => e.preventDefault()}
             >
               <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
             </div>
+            <a href="#about" className='absolute block md:hidden bg-primary p-3 px-5 top-[60%] rounded-full'>Get Started</a>
           </div>
         </section>
 
